@@ -21,6 +21,8 @@ const breakFill = document.querySelector(".break-fill");
 const breakModule = document.querySelector("#breakModule");
 const breakPercentage = document.querySelector("#breakPercentage");
 const breakPercentageModule = document.querySelector("#breakPercentageModule");
+const alarmSound = document.querySelector("#alarm");
+const rewardSound = document.querySelector("#rewardSound");
 
 let breakAfterValue;
 
@@ -35,14 +37,15 @@ function timer(time, var1, var2, var3, bool, var4) {
     };
 
     let timeInSeconds = time;
-    let totalBreakTime = timeInSeconds;
+    let totalBreakTime = Number(breakDuration.value * 60);
     let remainingTime = 0;
+
     if (var4 != undefined) {
         remainingTime = var4;
     }
     
     if (bool == true) {
-        const totalTime = Number(timeInput.value);
+        const totalTime = Number(timeInput.value * 60);
 
         timerInterval = setInterval(() => {
             timeInSeconds--;
@@ -59,6 +62,7 @@ function timer(time, var1, var2, var3, bool, var4) {
                 clearInterval(timerInterval);
 
                 setTimeout(() => {
+                    rewardSound.play();
                     timerScreen.classList.add("hidden");
                     EndScreen.classList.remove("hidden");
                     endGoal.textContent = goalInput.value;
@@ -67,9 +71,9 @@ function timer(time, var1, var2, var3, bool, var4) {
             };
 
             if (breakCheckBox.checked && breakAfterValue == totalTime - timeInSeconds) {
+                alarmSound.play();
                 breakAfterValue = breakAfterValue * 2;
-                console.log(breakAfterValue);
-                Break(breakDuration.value, remainingTime);
+                Break(breakDuration.value * 60, remainingTime);
                 clearInterval(timerInterval);
             };
         }, 1000);
@@ -89,6 +93,7 @@ function timer(time, var1, var2, var3, bool, var4) {
             var3.style.width = percentageFilled;
 
             if (timeInSeconds <= 0) {
+                alarmSound.play();
                 clearInterval(timerInterval);
                 breakTrack.classList.add("hidden");
                 breakFill.style.width = "0%";
@@ -103,8 +108,8 @@ function timer(time, var1, var2, var3, bool, var4) {
 
 
 startButton.addEventListener("click", () => {
-    const time = Number(timeInput.value);
-    breakAfterValue = Number(breakAfter.value)
+    const time = Number(timeInput.value * 60);
+    breakAfterValue = Number(breakAfter.value * 60);
 
     event.preventDefault();
     setupScreen.classList.add("hidden");
