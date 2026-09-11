@@ -2,7 +2,7 @@
 It is a productivity timer app with a option to set goals, audio and rewards, and the progress bar system to increase focus and satisfaction.
 
 
-<img width="1917" height="842" alt="Screenshot 2026-08-29 154722" src="https://github.com/user-attachments/assets/cc20cae7-3f76-4af8-84f3-5b3552c26641" />
+<img width="999" height="833" alt="Screenshot 2026-09-10 223434" src="https://github.com/user-attachments/assets/c3a606c3-1ed9-4be0-99cd-6a682c4ba033" />
 
 
 You can try out my website from here <a href="https://ashraf-999.github.io/Focus-Core/" target="blank">Try it</a>
