@@ -108,10 +108,28 @@ function timer(time, var1, var2, var3, bool, var4) {
 
 
 startButton.addEventListener("click", () => {
+    event.preventDefault();
+
+    alarmSound.volume = 0;
+
+    alarmSound.play().then(() => {
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        alarmSound.volume = 1;
+    });
+
+    rewardSound.volume = 0;
+
+    rewardSound.play().then(() => {
+        rewardSound.pause();
+        rewardSound.currentTime = 0;
+        rewardSound.volume = 1;
+    });
+
     const time = Number(timeInput.value * 60);
     breakAfterValue = Number(breakAfter.value * 60);
 
-    event.preventDefault();
+   
     setupScreen.classList.add("hidden");
     timerScreen.classList.remove("hidden");
     goal.textContent = goalInput.value;
