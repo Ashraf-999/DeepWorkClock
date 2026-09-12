@@ -3,7 +3,7 @@ It is a productivity timer app with a option to set goals, audio and rewards, an
 
 <img width="1085" height="811" alt="Screenshot 2026-09-12 125858" src="https://github.com/user-attachments/assets/3a024ac1-3187-49d0-ad53-b4be9b9236cc" />
 
-You can try out my website from here <a href="https://ashraf-999.github.io/Focus-Core/" target="blank">Try it</a>
+You can try out my website from here <a href="https://ashraf-999.github.io/DeepWorkClock/" target="blank">Try it</a>
 
 ## Features:
 1. Setting timer.
