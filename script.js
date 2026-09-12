@@ -25,8 +25,19 @@ const alarmSound = document.querySelector("#alarm");
 const rewardSound = document.querySelector("#rewardSound");
 
 let breakAfterValue;
+let wakeLock;
 
-navigator.wakeLock.request("screen");
+async function keepScreenOn() {
+    if('wakeLock' in navigator) {
+        try {
+            wakeLock = await navigator.wakeLock.request('screen');
+        } catch (error) {
+            console.error('Error acquiring wake lock:', error);
+        }
+     }
+}
+
+
 
 function timer(time, var1, var2, var3, bool, var4) {
     function Break(breakDuration, timeAfterBreak) {
@@ -107,8 +118,9 @@ function timer(time, var1, var2, var3, bool, var4) {
 };
 
 
-startButton.addEventListener("click", () => {
+startButton.addEventListener("click", async (event) => {
     event.preventDefault();
+    await keepScreenOn();
 
     alarmSound.volume = 0;
 
@@ -137,5 +149,10 @@ startButton.addEventListener("click", () => {
     timer(time, timeLeft, percentage, progressFill, true);
 
     
-})
+}); 
 
+document.addEventListener("visibilitychange", async () => {
+    if (document.visibilityState === "visible") {
+        await keepScreenOn();
+    }
+});
