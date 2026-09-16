@@ -14,20 +14,20 @@
       <header class="site-header"><h1>DeepWorkClock</h1></header>
       <form class="setup-form">
         <label class="field-group">
-          <p class="field-label"><span>01</span> GOAL</p>
+          <p class="field-label"> GOAL</p>
           <input id ="goalInput" type="text" placeholder="Finish Math Homework">
         </label>
         
 
         <label class="field-group">
-          <p class="field-label"><span>02</span> REWARD</p>
+          <p class="field-label"> REWARD</p>
           <input id="rewardInput" type="text" placeholder="30 minutes of Gaming">
         </label>
         
 
         <label class="field-group" for="timeInput">
-          <p class="field-label"><span>03</span> TIMER</p>
-          <div class="input-with-unit compact-input">
+          <p class="field-label"> TIMER</p>
+          <div class="input-with-unit">
             <input id="timeInput" type="number" placeholder="25">
             <span>MIN</span>
           </div>
@@ -40,17 +40,17 @@
             <span>BREAK</span>
           </label>
 
-          <label class="break-duration-control" for="breakInput">
+          <label for="breakInput">
             <span>BREAK TIME</span>
-            <div class="input-with-unit compact-input">
+            <div class="input-with-unit">
               <input id="breakInput" type="number" min="1" placeholder="5">
               <span>MIN</span>
             </div>
           </label>
 
-          <label class="break-duration-control" for="breakAfterInput">
+          <label for="breakAfterInput">
             <span>BREAK AFTER</span>
-            <div class="input-with-unit compact-input">
+            <div class="input-with-unit">
               <input id="breakAfterInput" type="number" min="1" placeholder="25">
               <span>MIN</span>
             </div>
@@ -75,7 +75,7 @@
 
       <div class="module-heading">
         <span class="session-label">PROGRESS:</span>
-        <span id="percentage" class="number-readout">0%</span>
+        <span id="percentage">0%</span>
       </div>
 
       <div class="progress-track">
@@ -84,7 +84,7 @@
 
       <div class="module-heading">
         <strong class="session-label">TIME LEFT:</strong>
-        <span  id="timeLeft" class="number-readout"></span>
+        <span id="timeLeft"></span>
       </div>
 
       
@@ -92,7 +92,7 @@
 
       <div id="breakPercentageModule" class="module-heading hidden">
         <span class="session-label">PROGRESS:</span>
-        <span id="breakPercentage" class="number-readout">0%</span>
+        <span id="breakPercentage">0%</span>
       </div>
       
       <div class="break-track hidden">
@@ -102,7 +102,7 @@
 
       <div id="breakModule" class="module-heading hidden">
         <strong class="session-label">BREAK:</strong>
-        <span id="breakTime" class="number-readout"></span>
+        <span id="breakTime"></span>
       </div>
     </section>
 
@@ -110,7 +110,7 @@
 
     <section id="complete-screen" class="screen hidden">
       <header class="site-header"><h1>DeepWorkClock</h1></header>
-      <h2 class="completion-message">Congratulations!</h2>
+      <h2>Congratulations!</h2>
 
       <br>
 

@@ -39,7 +39,7 @@ async function keepScreenOn() {
 
 
 
-function timer(time, var1, var2, var3, bool, var4) {
+function timer(time, TimeText, percText, percBar, bool, remTime) {
     function Break(breakDuration, timeAfterBreak) {
         breakTrack.classList.remove("hidden");
         breakModule.classList.remove("hidden");
@@ -51,8 +51,8 @@ function timer(time, var1, var2, var3, bool, var4) {
     let totalBreakTime = Number(breakDuration.value * 60);
     let remainingTime = 0;
 
-    if (var4 != undefined) {
-        remainingTime = var4;
+    if (remTime != undefined) {
+        remainingTime = remTime;
     }
     
     if (bool == true) {
@@ -65,9 +65,9 @@ function timer(time, var1, var2, var3, bool, var4) {
             let seconds = timeInSeconds % 60;
             let percentageFilled = `${Math.floor(((totalTime - timeInSeconds) / totalTime) * 100)}%`;
 
-            var1.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-            var2.textContent = percentageFilled;
-            var3.style.width = percentageFilled;
+            TimeText.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+            percText.textContent = percentageFilled;
+            percBar.style.width = percentageFilled;
  
             if (timeInSeconds <= 0) {
                 clearInterval(timerInterval);
@@ -99,9 +99,9 @@ function timer(time, var1, var2, var3, bool, var4) {
             let seconds = timeInSeconds % 60;
             let percentageFilled = `${Math.floor(((totalBreakTime - timeInSeconds) / totalBreakTime) * 100)}%`;
 
-            var1.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-            var2.textContent = percentageFilled;
-            var3.style.width = percentageFilled;
+            TimeText.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+            percText.textContent = percentageFilled;
+            percBar.style.width = percentageFilled;
 
             if (timeInSeconds <= 0) {
                 alarmSound.play();
@@ -122,20 +122,21 @@ startButton.addEventListener("click", async (event) => {
     event.preventDefault();
     await keepScreenOn();
 
-    alarmSound.volume = 0;
+    alarmSound.muted = true;
+     rewardSound.muted = true;
 
     alarmSound.play().then(() => {
         alarmSound.pause();
         alarmSound.currentTime = 0;
-        alarmSound.volume = 1;
+        alarmSound.muted = false;
+        alarmSound.volume = 0.5;
     });
-
-    rewardSound.volume = 0;
 
     rewardSound.play().then(() => {
         rewardSound.pause();
         rewardSound.currentTime = 0;
-        rewardSound.volume = 1;
+        rewardSound.muted = false;
+        rewardSound.volume = 0.5;
     });
 
     const time = Number(timeInput.value * 60);
